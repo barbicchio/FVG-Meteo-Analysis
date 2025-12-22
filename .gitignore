@@ -1,3 +1,7 @@
 /.venv
 /logs
 /data/raw/arpa
+/src/__pycache__
+/src/processing/__pycache__
+/src/schema/__pycache__
+/src/utils/__pycache__
