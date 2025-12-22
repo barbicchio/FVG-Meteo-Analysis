@@ -72,7 +72,3 @@ Typical variables include:
 This project focuses on **analysis, interpretation, and methodological clarity**, not operational forecasting.
 
 ---
-
-## Pipeline Architecture
-
-The pipeline is explicitly separated into stages to ensure clarity and reproducibility:
