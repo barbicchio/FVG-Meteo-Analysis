@@ -31,21 +31,21 @@ This project focuses on **regional and micro-territorial climate dynamics**, aim
 
 ---
 
-## Data Source
+## Data & Schema
 
-The data used in this project comes from the **public ARPA FVG meteorological archive**, which provides daily historical observations from multiple weather stations across the region.
+All processed datasets in this repository conform to a **canonical data schema** defined in:
 
-Typical variables include:
-- temperature (mean/min/max),
-- precipitation,
-- humidity,
-- wind,
-- pressure,
-- radiation (when available).
+👉 [`docs/schema.md`](docs/schema.md)
 
-> **Important:**  
-> Raw data is **not included** in this repository.  
-> Instructions to download and reproduce the dataset are provided below.
+The schema specifies:
+- column names and data types
+- units of measurement
+- allowed ranges and domains
+- missing value semantics
+- dataset-level invariants
+
+Raw data are stored unchanged in `data/raw/`.  
+All normalization, validation, and downstream processing assume strict compliance with the canonical schema.
 
 ---
 
