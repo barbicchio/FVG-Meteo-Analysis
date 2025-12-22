@@ -1,6 +1,5 @@
-from datetime import date
 from typing import Optional
-
+from datetime import date as Date
 from pydantic import BaseModel, Field, ConfigDict
 
 
@@ -13,7 +12,7 @@ class DailyObservation(BaseModel):
     """
 
     # ---- Core identifiers & time ----
-    date: date = Field(description="Calendar date of observation (ISO-8601).")
+    date: Date = Field(description="Calendar date of observation (ISO-8601).")
 
     year: int = Field(ge=1900, description="Year of observation.")
     month: int = Field(ge=1, le=12, description="Month of observation (1–12).")
