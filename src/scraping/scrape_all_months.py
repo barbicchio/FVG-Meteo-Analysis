@@ -234,7 +234,7 @@ if __name__ == "__main__":
     scrape_stations(
         stations=STATIONS,
         months=MONTHS,
-        out_dir=Path("../data/raw/arpa"),
+        out_dir=Path("../../data/raw/arpa"),
         rate_limit=3,
         headless=True,
     )
