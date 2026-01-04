@@ -104,7 +104,100 @@ These limitations should be considered when performing spatial analysis or long-
 
 ---
 
+# Monthly Dataset Schema (`monthly.parquet`)
+
+## Overview
+`monthly.parquet` is a derived analytical dataset built from `daily.parquet`.
+Each row represents the aggregated climatic behavior of **one station in one calendar month**.
+
+- **Unit of analysis:** station × year × month  
+- **Purpose:** climate analysis, anomaly detection, similarity, clustering, drift  
+- **Missing data:** preserved (no imputation); coverage metrics provided
+
+---
+
+## Primary Keys
+- `station_name` — meteorological station name  
+- `year` — calendar year  
+- `month` — calendar month (1–12)
+
+---
+
+## Temporal Coverage
+- `n_days_rows` — number of daily records available for the station-month
+
+---
+
+## Temperature (°C)
+For each of:
+- `temperature_min`
+- `temperature_mean`
+- `temperature_max`
+
+Provided metrics:
+- `_mean`, `_min`, `_max`, `_std`
+- `_n_valid_days`
+- `_coverage`
+
+---
+
+## Precipitation (mm)
+- `precipitation_sum` — total monthly precipitation  
+- `precipitation_max` — maximum daily precipitation  
+- `precipitation_mean` — mean daily precipitation  
+- `precipitation_rainy_days` — days with precipitation > 0  
+- `precipitation_n_valid_days`, `precipitation_coverage`
+
+---
+
+## Humidity (%)
+For each of:
+- `humidity_min`
+- `humidity_mean`
+- `humidity_max`
+
+Provided metrics:
+- `_mean`, `_min`, `_max`, `_std`
+- `_n_valid_days`, `_coverage`
+
+---
+
+## Wind
+**Speed (km/h)** for:
+- `wind_speed_mean`
+- `wind_speed_max`
+
+Provided metrics:
+- `_mean`, `_min`, `_max`, `_std`
+- `_n_valid_days`, `_coverage`
+
+**Direction (degrees from North):**
+- `wind_direction_max_median`
+- `wind_direction_max_n_valid_days`
+- `wind_direction_max_coverage`
+
+---
+
+## Solar Radiation (kJ/m²)
+- `_mean`, `_min`, `_max`, `_std`
+- `_n_valid_days`, `_coverage`
+
+---
+
+## Atmospheric Pressure (hPa)
+- `_mean`, `_min`, `_max`, `_std`
+- `_n_valid_days`, `_coverage`
+
+---
+
+## Notes
+- No imputation or smoothing is applied.
+- Coverage metrics enable filtering of unreliable months.
+- `monthly.parquet` is the main dataset for downstream analysis.
+
+
 ## Schema changelog
 
 - **v1.0** — Initial canonical schema definition  
 - **v1.1** — Added allowed ranges and explicit data quality invariants
+- **v1.2** — Added Montly schema definition
